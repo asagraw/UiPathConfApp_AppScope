@@ -92,9 +92,12 @@ namespace UiPathConfApp_AppScope
         private async Task RequestFolderInfoAsync(string accessToken)
         {
             Log("Making API Call to Folderinfo...");
+            
+            string org_name = "test_org";
+            string tenant = "Production";
 
             // builds the  request
-            string folderinfoRequestUri = "https://cloud.uipath.com/regisagedcare/Production/orchestrator_/odata/Folders";
+            string folderinfoRequestUri = string.format("https://cloud.uipath.com/{0}/{1}/orchestrator_/odata/Folders", org_name, tenant);
 
             // sends the request
             HttpWebRequest folderinfoRequest = (HttpWebRequest)WebRequest.Create(folderinfoRequestUri);
